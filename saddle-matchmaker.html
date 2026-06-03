@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saddle Matchmaker | CertifiedUsedSaddles.com</title>
+<meta name="description" content="Answer 5 questions and we match you to the best certified used western saddle in David Solum's inventory — reining, cutting, cow horse, and ranch.">
+<link rel="canonical" href="https://www.certifiedusedsaddles.com/saddle-matchmaker.html">
+<link rel="stylesheet" href="/styles.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Saddle Matchmaker | CertifiedUsedSaddles.com">
+<meta property="og:description" content="Answer 5 questions and get matched to the best certified used western saddle in David Solum's inventory.">
+<meta property="og:url" content="https://www.certifiedusedsaddles.com/saddle-matchmaker.html">
+<meta property="og:image" content="https://www.certifiedusedsaddles.com/images/certified-used-saddles-logo.jpg">
+<meta property="og:site_name" content="CertifiedUsedSaddles.com">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  /* ── Matchmaker UI ── */
+  .mm-wrap { max-width: 720px; margin: 0 auto; padding: 0 16px 48px; }
+  @media (min-width: 640px) { .mm-wrap { padding: 0 24px 64px; } }
+
+  /* Step bar */
+  .mm-step-bar { display: flex; gap: 6px; margin: 32px 0 28px; }
+  .mm-dot { flex: 1; height: 4px; border-radius: 2px; background: rgba(93,58,26,.15); transition: background .3s; }
+  .mm-dot.done { background: var(--cognac); }
+  .mm-dot.active { background: var(--hay); }
+
+  /* Step header */
+  .mm-step-label { font-family: var(--font-label); font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .mm-h { font-family: var(--font-display); font-size: clamp(1.3rem, 3.5vw, 1.8rem); color: var(--deep-tobacco); margin-bottom: 8px; line-height: 1.2; }
+  .mm-sub { font-size: .95rem; color: var(--warm-gray); line-height: 1.7; margin-bottom: 24px; }
+
+  /* Chips */
+  .mm-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .mm-chip { font-family: var(--font-label); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; padding: 9px 16px; border: 1px solid rgba(93,58,26,.25); color: var(--warm-gray); cursor: pointer; background: var(--white); transition: all .18s; user-select: none; }
+  .mm-chip:hover { border-color: var(--cognac); color: var(--cognac); }
+  .mm-chip.sel { background: var(--cognac); color: var(--white); border-color: var(--cognac); }
+
+  /* Range */
+  .mm-range-label { font-family: var(--font-label); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 8px; }
+  .mm-range-row { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+  .mm-range-row input[type=range] { flex: 1; accent-color: var(--cognac); cursor: pointer; height: 4px; }
+  .mm-range-val { font-family: var(--font-display); font-size: 1.1rem; color: var(--cognac); font-weight: 700; min-width: 72px; text-align: right; }
+
+  /* Nav buttons */
+  .mm-btn-row { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+  .mm-btn { font-family: var(--font-label); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; padding: 12px 24px; border: 1px solid rgba(93,58,26,.3); color: var(--mid-brown); cursor: pointer; background: var(--white); transition: all .2s; }
+  .mm-btn:hover { border-color: var(--cognac); color: var(--cognac); background: var(--cream); }
+  .mm-btn.primary { background: var(--cognac); color: var(--white); border-color: var(--cognac); }
+  .mm-btn.primary:hover { background: var(--deep-tobacco); border-color: var(--deep-tobacco); }
+  .mm-btn.ghost { background: transparent; border-color: rgba(93,58,26,.2); }
+
+  /* Progress text */
+  .mm-progress { font-family: var(--font-label); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 4px; }
+
+  /* Result cards */
+  .mm-results-intro { font-size: .95rem; color: var(--warm-gray); line-height: 1.7; margin-bottom: 24px; }
+  .mm-card { display: flex; background: var(--white); border: 1px solid rgba(93,58,26,.15); margin-bottom: 14px; overflow: hidden; transition: box-shadow .2s, transform .2s; }
+  .mm-card:hover { box-shadow: 0 4px 20px rgba(58,31,8,.1); transform: translateY(-1px); }
+  .mm-img { width: 110px; flex-shrink: 0; background: var(--parchment); display: flex; align-items: center; overflow: hidden; }
+  @media (min-width: 480px) { .mm-img { width: 130px; } }
+  .mm-img img { width: 100%; height: 100%; object-fit: contain; padding: 8px; display: block; }
+  .mm-body { flex: 1; padding: 14px 16px; min-width: 0; }
+  .mm-rank { font-family: var(--font-label); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+  .mm-rank.best { color: var(--white); background: var(--cognac); display: inline-block; padding: 2px 10px; margin-bottom: 6px; }
+  .mm-score-wrap { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .mm-bar-bg { flex: 1; height: 3px; background: rgba(93,58,26,.12); overflow: hidden; }
+  .mm-bar { height: 3px; background: var(--cognac); transition: width .6s ease; }
+  .mm-pct { font-family: var(--font-label); font-size: 9px; letter-spacing: .08em; color: var(--cognac); white-space: nowrap; }
+  .mm-title { font-family: var(--font-display); font-size: clamp(.9rem, 2.5vw, 1.05rem); color: var(--deep-tobacco); line-height: 1.3; margin-bottom: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .mm-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+  .mm-tag { font-family: var(--font-label); font-size: 9px; letter-spacing: .06em; text-transform: uppercase; color: var(--warm-gray); border: 1px solid rgba(93,58,26,.18); padding: 2px 8px; }
+  .mm-price-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  .mm-price { font-family: var(--font-display); font-size: 1.15rem; color: var(--cognac); font-weight: 700; }
+  .mm-link { font-family: var(--font-label); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--mid-brown); text-decoration: none; border-bottom: 1px solid rgba(93,58,26,.25); padding-bottom: 1px; white-space: nowrap; }
+  .mm-link:hover { color: var(--cognac); border-color: var(--cognac); }
+  .mm-reasons { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+  .mm-reason { font-family: var(--font-label); font-size: 9px; letter-spacing: .05em; text-transform: uppercase; background: var(--parchment); color: var(--mid-brown); padding: 2px 8px; }
+
+  /* CTA box */
+  .mm-cta { background: var(--deep-tobacco); padding: 28px 24px; text-align: center; margin-top: 32px; }
+  .mm-cta h3 { font-family: var(--font-display); font-size: 1.3rem; color: var(--parchment); margin-bottom: 10px; }
+  .mm-cta p { font-size: .9rem; color: var(--hay); line-height: 1.7; max-width: 440px; margin: 0 auto 20px; }
+  .mm-cta-btns { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+
+  /* No matches */
+  .mm-nomatch { text-align: center; padding: 40px 20px; color: var(--warm-gray); font-family: var(--font-display); font-size: 1.1rem; }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-logo">Certified Used<span>Saddles</span>.com</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/reining-saddles.html">Reining</a></li>
+      <li><a href="/cutting-saddles.html">Cutting</a></li>
+      <li><a href="/cowhorse-saddles.html">Cow Horse</a></li>
+      <li><a href="/ranch-saddles.html">Ranch</a></li>
+      <li><a href="/about-david-solum.html">About David</a></li>
+      <li><a href="/saddle-makers-guide.html">Maker Guide</a></li>
+      <li><a href="/saddle-matchmaker.html" class="active">Matchmaker</a></li>
+      <li><a href="/faq.html">FAQ</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+      <li><a href="/contact.html" class="nav-cta">Inquire Now</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="trust-bar">
+  <span class="trust-item">&#9989; Every Saddle Personally Inspected</span>
+  <span class="trust-sep">|</span>
+  <span class="trust-item">&#128222; (417) 793-1403</span>
+  <span class="trust-sep">|</span>
+  <span class="trust-item">40+ Years Experience</span>
+  <span class="trust-sep">|</span>
+  <span class="trust-item">Nationwide Shipping</span>
+</div>
+
+<section style="background:var(--deep-tobacco);background-image:radial-gradient(ellipse at 25% 50%,rgba(139,69,19,.4) 0%,transparent 60%);padding:20px 0 16px;border-bottom:3px solid var(--cognac);">
+  <div class="container">
+    <p style="font-family:var(--font-label);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,253,248,.5);margin-bottom:8px;">Find Your Saddle</p>
+    <h1 style="font-family:var(--font-display);font-size:clamp(1.5rem,4vw,3rem);color:var(--parchment);line-height:1.15;margin-bottom:8px;">Saddle Matchmaker</h1>
+    <p style="color:rgba(255,253,248,.8);font-size:.95rem;max-width:580px;line-height:1.75;">Answer 5 questions. We score every certified used saddle in David&#8217;s inventory against your preferences and show your best matches with a full explanation of why each one fits.</p>
+  </div>
+</section>
+
+<div class="mm-wrap">
+  <div class="mm-step-bar" id="stepBar"></div>
+  <div id="mmApp"></div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Certified Used<span>Saddles</span>.com</div>
+        <p class="footer-tagline">David Solum&#8217;s personally inspected, certified pre-owned western performance saddles &#8212; reining, cutting, cow horse, and ranch. 40+ years of expertise behind every listing.</p>
+        <img src="/images/certified-used-saddles-logo-sm.jpg" alt="Certified Used Saddles" style="width:60px;height:auto;border-radius:50%;background:rgba(255,255,255,.1);padding:3px;margin-top:12px;" loading="lazy">
+      </div>
+      <div class="footer-col"><h4>Shop by Discipline</h4><ul>
+        <li><a href="/reining-saddles.html">Reining Saddles</a></li>
+        <li><a href="/cutting-saddles.html">Cutting Saddles</a></li>
+        <li><a href="/cowhorse-saddles.html">Cow Horse Saddles</a></li>
+        <li><a href="/ranch-saddles.html">Ranch Saddles</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>David Solum</h4><ul>
+        <li><a href="/about-david-solum.html">About David</a></li>
+        <li><a href="/whats-my-saddle-worth.html">Saddle Valuation</a></li>
+        <li><a href="/saddle-makers-guide.html">Maker Guide</a></li>
+        <li><a href="/saddle-care-maintenance.html">Saddle Care</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
+        <li><a href="/contact.html">Contact &amp; Want List</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Saddle Network</h4><ul>
+        <li><a href="https://reiningsaddles.com" target="_blank" rel="noopener">ReiningSaddles.com</a></li>
+        <li><a href="https://cuttingsaddles.com" target="_blank" rel="noopener">CuttingSaddles.com</a></li>
+        <li><a href="https://cowhorsesaddle.com" target="_blank" rel="noopener">CowHorseSaddle.com</a></li>
+        <li><a href="https://ranchsaddles.com" target="_blank" rel="noopener">RanchSaddles.com</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Equestrian Network</h4><ul>
+        <li><a href="https://reininghorse.ai" target="_blank" rel="noopener">ReiningHorse.ai</a></li>
+        <li><a href="https://reininghorsevideos.com" target="_blank" rel="noopener">ReiningHorseVideos.com</a></li>
+        <li><a href="https://superior-saddlery.com" target="_blank" rel="noopener">Superior Saddlery</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 CertifiedUsedSaddles.com &#8212; David Solum</p>
+      <p>
+        <a href="tel:4177931403" style="color:var(--warm-gray);">&#128222; (417) 793-1403</a>
+        &nbsp;|&nbsp;
+        <a href="mailto:davidsolumsales@gmail.com" style="color:var(--warm-gray);">davidsolumsales@gmail.com</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+var INVENTORY=[{"slug":"af-reiner-pinnacle-saddlery-16","title":"AF Reiner \u2014 Pinnacle Saddlery, 16\" Full Silver","price":5995,"cat":"Reining","seat":16.0,"maker":"Pinnacle","silver":"full","img":"/images/used-saddles/af-reiner-pinnacle-saddlery-16-full-offside.jpg","cat_url":"/reining-saddles.html"},{"slug":"andrea-maschke-reiner-15-5","title":"Andrea Maschke Reiner \u2014 15\u00bd\" Original 2004","price":2495,"cat":"Reining","seat":15.5,"maker":"Andrea Maschke","silver":"minimal","img":"/images/used-saddles/andrea-maschke-reiner-15.5.jpg","cat_url":"/reining-saddles.html"},{"slug":"bob-avila-bobs-custom-16-b","title":"Bob Avila \u2014 Bob's Custom 16\" B17-120M","price":5995,"cat":"Reining","seat":16.0,"maker":"Bob's Custom","silver":"full","img":"/images/used-saddles/bob-avila-bobs-custom-16-b-full-left.jpg","cat_url":"/reining-saddles.html"},{"slug":"bob-avila-bobs-custom-16-c","title":"Bob Avila \u2014 Bob's Custom 16\" Silver Swell Cap","price":5995,"cat":"Reining","seat":16.0,"maker":"Bob's Custom","silver":"full","img":"/images/used-saddles/bob-avila-bobs-custom-16-c-full-left.jpg","cat_url":"/reining-saddles.html"},{"slug":"bob-avila-bobs-custom-16-d","title":"Bob Avila \u2014 Bob's Custom 16\" B99-472","price":1995,"cat":"Reining","seat":16.0,"maker":"Bob's Custom","silver":"full","img":"/images/used-saddles/bob-avila-bobs-custom-16-d-full-offside.jpg","cat_url":"/reining-saddles.html"},{"slug":"bob-avila-bobs-custom-16","title":"Bob Avila \u2014 Bob's Custom 16\" Seat","price":5995,"cat":"Reining","seat":16.0,"maker":"Bob's Custom","silver":"full","img":"/images/used-saddles/bob-avila-bobs-custom-16-full-right.jpg","cat_url":"/reining-saddles.html"},{"slug":"bob-avila-bobs-custom-17","title":"Bob Avila \u2014 Bob's Custom 17\" S-Scroll Sterling","price":2995,"cat":"Reining","seat":17.0,"maker":"Bob's Custom","silver":"full","img":"/images/used-saddles/bob-avila-bobs-custom-17-full-offside.jpg","cat_url":"/reining-saddles.html"},{"slug":"bobs-custom-16-b16-1455m","title":"Bob's Custom 16\" Model B16-1455M","price":2495,"cat":"Reining","seat":16.0,"maker":"Bob's Custom","silver":"minimal","img":"/images/used-saddles/bobs-custom-16-b16-1455m-full-offside.jpg","cat_url":"/reining-saddles.html"},{"slug":"bobs-custom-16-basketweave-silver","title":"Bob's Custom 16\" Basketweave & Floral Silver","price":5995,"cat":"Reining","seat":16.0,"maker":"Bob's Custom","silver":"full","img":"/images/used-saddles/bobs-custom-16-basketweave-silver-full-left.jpg","cat_url":"/reining-saddles.html"},{"slug":"bobs-custom-16-tan-sterling-silver","title":"Bob's Custom 16\" Tan Leather, Sterling Silver","price":5995,"cat":"Reining","seat":16.0,"maker":"Bob's Custom","silver":"full","img":"/images/used-saddles/bobs-custom-16-tan-sterling-full-left.jpg","cat_url":"/reining-saddles.html"},{"slug":"bobs-custom-kr-lady-reiner-15-5","title":"Bob's Custom KR Lady Reiner 15\u00bd\" Bison Seat","price":4995,"cat":"Reining","seat":15.5,"maker":"Bob's Custom","silver":"partial","img":"/images/used-saddles/bobs-custom-kr-lady-reiner-15-5-full-left.jpg","cat_url":"/reining-saddles.html"},{"slug":"bobs-custom-saddle-15-b14-867m","title":"Bob's Custom 15\" Model B14-867M","price":1795,"cat":"Reining","seat":15.0,"maker":"Bob's Custom","silver":"minimal","img":"/images/used-saddles/bobs-custom-15-b14-867m.jpg","cat_url":"/reining-saddles.html"},{"slug":"calvin-allen-ranch-cutter-15-5","title":"Calvin Allen Ranch Cutter 15\u00bd\"","price":1995,"cat":"Cutting","seat":15.5,"maker":"Calvin Allen","silver":"minimal","img":"/images/used-saddles/calvin-allen-ranch-cutter-15-5-full-offside.jpg","cat_url":"/cutting-saddles.html"},{"slug":"casey-deary-reiner-superior-16","title":"Casey Deary Reiner \u2014 Superior 16\"","price":5995,"cat":"Reining","seat":16.0,"maker":"Superior","silver":"full","img":"/images/used-saddles/casey-deary-superior-16-main.jpg","cat_url":"/reining-saddles.html"},{"slug":"craig-schmersal-reiner-superior-16","title":"Craig Schmersal Reiner \u2014 Superior 16\"","price":4995,"cat":"Reining","seat":16.0,"maker":"Superior","silver":"partial","img":"/images/used-saddles/craig-schmersal-reiner-superior-16.jpg","cat_url":"/reining-saddles.html"},{"slug":"donn-leson-reinmaker-16","title":"Donn Leson Reinmaker 16\"","price":7995,"cat":"Reining","seat":16.0,"maker":"Donn Leson","silver":"full","img":"/images/used-saddles/donn-leson-reinmaker-16-full-offside.jpg","cat_url":"/reining-saddles.html"},{"slug":"donn-leson-tvb-386-16","title":"Donn Leson TVB #386 \u2014 16\"","price":6495,"cat":"Reining","seat":16.0,"maker":"Donn Leson","silver":"full","img":"/images/used-saddles/donn-leson-tvb-386-16-full-left.jpg","cat_url":"/reining-saddles.html"},{"slug":"equine-oasis-tim-bauer-17","title":"Equine Oasis by Tim Bauer 17\"","price":2995,"cat":"Reining","seat":17.0,"maker":"Equine Oasis","silver":"minimal","img":"/images/used-saddles/equine-oasis-tim-bauer-17-main.jpg","cat_url":"/reining-saddles.html"},{"slug":"jason-vanlandingham-reiner-superior-16","title":"Jason Vanlandingham Reiner \u2014 Superior 16\"","price":2995,"cat":"Reining","seat":16.0,"maker":"Superior","silver":"minimal","img":"/images/used-saddles/jason-vanlandingham-reiner-superior-16-full-left.jpg","cat_url":"/reining-saddles.html"},{"slug":"kyle-tack-reiner-15-5","title":"Kyle Tack Reiner 15\u00bd\"","price":3995,"cat":"Reining","seat":15.5,"maker":"Kyle Tack","silver":"partial","img":"/images/used-saddles/kyle-tack-reiner-15.5.jpg","cat_url":"/reining-saddles.html"},{"slug":"kyle-tack-reiner-16-like-new","title":"Kyle Tack Reiner 16\" Like New","price":3995,"cat":"Reining","seat":16.0,"maker":"Kyle Tack","silver":"partial","img":"/images/used-saddles/kyle-tack-reiner-16-like-new.jpg","cat_url":"/reining-saddles.html"},{"slug":"kyle-tack-reiner-16-mint","title":"Kyle Tack Reiner 16\" Mint","price":3995,"cat":"Reining","seat":16.0,"maker":"Kyle Tack","silver":"partial","img":"/images/used-saddles/kyle-tack-reiner-16-mint-main.jpg","cat_url":"/reining-saddles.html"},{"slug":"kyle-tack-reiner-16-silver-conchos","title":"Kyle Tack Reiner 16\" Silver Conchos","price":3995,"cat":"Reining","seat":16.0,"maker":"Kyle Tack","silver":"partial","img":"/images/used-saddles/kyle-tack-reiner-16-silver-conchos-main.jpg","cat_url":"/reining-saddles.html"},{"slug":"kyle-tack-reiner-16","title":"Kyle Tack Reiner 16\"","price":3995,"cat":"Reining","seat":16.0,"maker":"Kyle Tack","silver":"partial","img":"/images/used-saddles/kyle-tack-reiner-16.jpg","cat_url":"/reining-saddles.html"},{"slug":"lady-cowhorse-bobs-custom-15-5-b","title":"Lady Cowhorse \u2014 Bob's Custom 15\u00bd\" Brand New","price":4995,"cat":"Cow Horse","seat":15.5,"maker":"Bob's Custom","silver":"partial","img":"/images/used-saddles/lady-cowhorse-bobs-custom-15-5-b-full-offside.jpg","cat_url":"/cowhorse-saddles.html"},{"slug":"lady-cowhorse-bobs-custom-15-5","title":"Lady Cowhorse \u2014 Bob's Custom 15\u00bd\"","price":4995,"cat":"Cow Horse","seat":15.5,"maker":"Bob's Custom","silver":"partial","img":"/images/used-saddles/lady-cowhorse-bobs-custom-15-5-full-left.jpg","cat_url":"/cowhorse-saddles.html"},{"slug":"mandy-mccutcheon-reiner-superior-16","title":"Mandy McCutcheon Reiner \u2014 Superior 16\"","price":2995,"cat":"Reining","seat":16.0,"maker":"Superior","silver":"minimal","img":"/images/used-saddles/mandy-mccutcheon-superior-16-main.jpg","cat_url":"/reining-saddles.html"},{"slug":"mr-reiner-superior-15-5","title":"MR Reiner \u2014 Superior 15\u00bd\" Full Silver","price":6495,"cat":"Reining","seat":15.5,"maker":"Superior","silver":"full","img":"/images/used-saddles/mr-reiner-superior-15-5-full-left.jpg","cat_url":"/reining-saddles.html"},{"slug":"rios-bros-roper-15-5","title":"Rios Bros. Roper 15\u00bd\" (Needs Seat Stitching)","price":495,"cat":"Reining","seat":15.5,"maker":"Rios Bros.","silver":"minimal","img":"/images/used-saddles/rios-bros-roper-15-5-full-offside.jpg","cat_url":"/reining-saddles.html"},{"slug":"roohide-reiner-17","title":"Roohide Reiner 17\" Basketweave","price":2995,"cat":"Reining","seat":17.0,"maker":"Roohide","silver":"minimal","img":"/images/used-saddles/roohide-reiner-17-full-offside.jpg","cat_url":"/reining-saddles.html"},{"slug":"srs-ranch-saddle-16","title":"SRS Ranch Saddle 16\" Two-Tone Hand Tooled","price":1495,"cat":"Ranch","seat":16.0,"maker":"SRS","silver":"minimal","img":"/images/used-saddles/srs-ranch-saddle-16-main.jpg","cat_url":"/ranch-saddles.html"},{"slug":"superior-ranch-rider-16-5-nevada","title":"Superior Ranch Rider 16\u00bd\" Nevada Border","price":5495,"cat":"Ranch","seat":16.5,"maker":"Superior","silver":"full","img":"/images/used-saddles/superior-ranch-rider-16-5-nevada-full-offside.jpg","cat_url":"/ranch-saddles.html"},{"slug":"superior-ranch-rider-deluxe-16-5","title":"Ranch Rider Deluxe \u2014 Superior 16\u00bd\"","price":5495,"cat":"Ranch","seat":16.5,"maker":"Superior","silver":"full","img":"/images/used-saddles/superior-ranch-rider-deluxe-16-5-full-offside.jpg","cat_url":"/ranch-saddles.html"},{"slug":"superior-reiner-floral-4995","title":"Superior Reiner \u2014 Full Floral 16\"","price":4995,"cat":"Reining","seat":16.0,"maker":"Superior","silver":"partial","img":"/images/used-saddles/superior-reiner-4995-tag.jpg","cat_url":"/reining-saddles.html"},{"slug":"teddy-johnson-cutter-16-full","title":"Teddy Johnson Cutter 16\" NCHA History","price":1195,"cat":"Cutting","seat":16.0,"maker":"Teddy Johnson","silver":"minimal","img":"/images/used-saddles/teddy-johnson-cutter-16-seat-top.jpg","cat_url":"/cutting-saddles.html"},{"slug":"teddy-johnson-cutter-16","title":"Teddy Johnson Cutter 16\"","price":1195,"cat":"Cutting","seat":16.0,"maker":"Teddy Johnson","silver":"minimal","img":"/images/used-saddles/teddy-johnson-cutter-16.jpg","cat_url":"/cutting-saddles.html"},{"slug":"trevor-dare-martin-saddlery-15-5","title":"Trevor Dare \u2014 Martin Saddlery 15\u00bd\" Full Silver","price":4995,"cat":"Reining","seat":15.5,"maker":"Martin","silver":"full","img":"/images/used-saddles/trevor-dare-martin-saddlery-15-5-full-offside.jpg","cat_url":"/reining-saddles.html"}];
+
+var STEPS = ['Discipline','Seat size','Budget','Silver','Makers'];
+var CATS  = ['Reining','Cutting','Cow Horse','Ranch'];
+var SEAT_LABELS = ['15"','15\u00bd"','16"','16\u00bd"','17"'];
+var SEAT_VALS   = [15, 15.5, 16, 16.5, 17];
+var SILVER_OPTS = [
+  {val:'any',     label:'No preference'},
+  {val:'minimal', label:'Minimal / none'},
+  {val:'partial', label:'Some silver'},
+  {val:'full',    label:'Full silver package'}
+];
+var ALL_MAKERS = ['Andrea Maschke',"Bob's Custom",'Calvin Allen','Donn Leson',
+  'Equine Oasis','Kyle Tack','Martin','Pinnacle','Rios Bros.','Roohide',
+  'SRS','Superior','Teddy Johnson'];
+
+var state = {disc:[], seat:null, bMin:0, bMax:8500, silver:'any', makers:[]};
+var step  = 0;
+var results = null;
+
+/* ── Scoring ── */
+function score(s) {
+  var pts=0, max=0, why=[];
+  /* Discipline 40 pts */
+  max+=40;
+  if(!state.disc.length || state.disc.indexOf(s.cat)>-1){ pts+=40; why.push('Discipline'); }
+  /* Seat 30 pts */
+  max+=30;
+  if(state.seat!==null){
+    var d=Math.abs(s.seat-state.seat);
+    if(d===0){pts+=30;why.push('Exact seat');}
+    else if(d===0.5){pts+=20;why.push('Close seat');}
+    else if(d===1){pts+=10;}
+  } else { pts+=20; }
+  /* Budget 20 pts */
+  max+=20;
+  var p=s.price||0;
+  if(p>=state.bMin && p<=state.bMax){pts+=20;why.push('Within budget');}
+  else if(p>0 && Math.abs(p-state.bMin)<500){pts+=10;}
+  else if(p>0 && Math.abs(p-state.bMax)<500){pts+=8;}
+  /* Silver 5 pts */
+  max+=5;
+  if(state.silver==='any'){pts+=5;}
+  else if(state.silver===s.silver){pts+=5;why.push('Silver match');}
+  else if((state.silver==='partial'&&s.silver==='full')||(state.silver==='full'&&s.silver==='partial')){pts+=2;}
+  /* Maker 5 pts */
+  max+=5;
+  if(!state.makers.length){pts+=5;}
+  else if(state.makers.indexOf(s.maker)>-1){pts+=5;why.push('Preferred maker');}
+  return {pct:Math.round(pts/max*100), why:why};
+}
+
+function compute() {
+  return INVENTORY.map(function(s){
+    var sc=score(s);
+    return {slug:s.slug,title:s.title,price:s.price,cat:s.cat,seat:s.seat,
+            maker:s.maker,img:s.img,cat_url:s.cat_url,pct:sc.pct,why:sc.why};
+  }).filter(function(s){return s.pct>=30;})
+    .sort(function(a,b){return b.pct-a.pct;})
+    .slice(0,8);
+}
+
+/* ── Helpers ── */
+function fmt(n){ return n>0?'$'+n.toLocaleString():'Contact'; }
+
+function chip(label, active, onclick) {
+  return '<span class="mm-chip'+(active?' sel':'')+'" onclick="'+onclick+'">'+label+'</span>';
+}
+
+function toggleDisc(v) {
+  var i=state.disc.indexOf(v);
+  if(i>-1) state.disc.splice(i,1); else state.disc.push(v);
+  render();
+}
+function setSeat(v) { state.seat=v; render(); }
+function toggleMaker(v) {
+  var i=state.makers.indexOf(v);
+  if(i>-1) state.makers.splice(i,1); else state.makers.push(v);
+  render();
+}
+function setSilver(v) { state.silver=v; render(); }
+function goBack() { step--; results=null; render(); }
+function goNext() {
+  if(step<STEPS.length-1){ step++; render(); }
+  else { results=compute(); step=5; render(); }
+}
+function restart() {
+  state={disc:[],seat:null,bMin:0,bMax:8500,silver:'any',makers:[]};
+  step=0; results=null; render();
+}
+
+/* ── Render ── */
+function renderBar() {
+  var html='';
+  for(var i=0;i<STEPS.length;i++){
+    html+='<div class="mm-dot'+(i<step?' done':i===step?' active':'')+'"></div>';
+  }
+  document.getElementById('stepBar').innerHTML=html;
+}
+
+function renderStep() {
+  var html='';
+  if(step===0) {
+    html='<p class="mm-step-label">Step 1 of 5</p>';
+    html+='<h2 class="mm-h">What discipline do you ride?</h2>';
+    html+='<p class="mm-sub">Select all that apply. Skip to see all disciplines.</p>';
+    html+='<div class="mm-chips">';
+    CATS.forEach(function(c){
+      html+=chip(c, state.disc.indexOf(c)>-1, 'toggleDisc("'+c+'")');
+    });
+    html+='</div>';
+  }
+  if(step===1) {
+    html='<p class="mm-step-label">Step 2 of 5</p>';
+    html+='<h2 class="mm-h">What seat size do you ride?</h2>';
+    html+='<p class="mm-sub">Exact match scores highest. Adjacent sizes score partial credit. Skip if unsure.</p>';
+    html+='<div class="mm-chips">';
+    html+=chip('Any size', state.seat===null, 'setSeat(null)');
+    SEAT_LABELS.forEach(function(l,i){
+      html+=chip(l, state.seat===SEAT_VALS[i], 'setSeat('+SEAT_VALS[i]+')');
+    });
+    html+='</div>';
+  }
+  if(step===2) {
+    html='<p class="mm-step-label">Step 3 of 5</p>';
+    html+='<h2 class="mm-h">What\'s your budget?</h2>';
+    html+='<p class="mm-sub">Drag to set your range. Saddles within $500 of your range still appear at reduced score.</p>';
+    html+='<div class="mm-range-label">Minimum</div>';
+    html+='<div class="mm-range-row"><input type="range" min="0" max="7500" step="250" value="'+state.bMin+'" oninput="state.bMin=+this.value;document.getElementById(\'bminVal\').textContent=\'$\'+Number(this.value).toLocaleString()"><span class="mm-range-val" id="bminVal">$'+state.bMin.toLocaleString()+'</span></div>';
+    html+='<div class="mm-range-label">Maximum</div>';
+    html+='<div class="mm-range-row"><input type="range" min="500" max="8500" step="250" value="'+state.bMax+'" oninput="state.bMax=+this.value;document.getElementById(\'bmaxVal\').textContent=\'$\'+Number(this.value).toLocaleString()"><span class="mm-range-val" id="bmaxVal">$'+state.bMax.toLocaleString()+'</span></div>';
+  }
+  if(step===3) {
+    html='<p class="mm-step-label">Step 4 of 5</p>';
+    html+='<h2 class="mm-h">Silver preference?</h2>';
+    html+='<p class="mm-sub">How much does silver hardware matter to you?</p>';
+    html+='<div class="mm-chips">';
+    SILVER_OPTS.forEach(function(o){
+      html+=chip(o.label, state.silver===o.val, 'setSilver("'+o.val+'")');
+    });
+    html+='</div>';
+  }
+  if(step===4) {
+    html='<p class="mm-step-label">Step 5 of 5</p>';
+    html+='<h2 class="mm-h">Any preferred makers?</h2>';
+    html+='<p class="mm-sub">Select any you\'d like to prioritize. Skip to see all makers equally.</p>';
+    html+='<div class="mm-chips">';
+    ALL_MAKERS.forEach(function(m){
+      html+=chip(m, state.makers.indexOf(m)>-1, 'toggleMaker("'+m.replace(/'/g,"\\'")+'")');
+    });
+    html+='</div>';
+  }
+
+  var btnLabel = step===STEPS.length-1 ? 'Find My Matches &#8594;' : 'Continue &#8594;';
+  html+='<div class="mm-btn-row">';
+  if(step>0) html+='<button class="mm-btn ghost" onclick="goBack()">&#8592; Back</button>';
+  html+='<button class="mm-btn primary" onclick="goNext()">'+btnLabel+'</button>';
+  html+='</div>';
+
+  return html;
+}
+
+function renderResults() {
+  var html='<p class="mm-step-label">Your matches</p>';
+  html+='<h2 class="mm-h">'+results.length+' saddles matched your preferences</h2>';
+  html+='<p class="mm-results-intro">Scored against '+INVENTORY.length+' certified used saddles in David Solum&#8217;s current inventory. Every saddle has been personally inspected &#8212; tree integrity verified, leather documented, honestly priced.</p>';
+
+  if(!results.length){
+    html+='<div class="mm-nomatch">No saddles scored above 30% on your criteria.<br>Try broadening your budget or seat size.</div>';
+  }
+
+  results.forEach(function(s,i){
+    var rankHtml = i===0 ? '<div class="mm-rank best">Best match</div>' :
+                   '<div class="mm-rank">#'+(i+1)+' match</div>';
+    var whyHtml = s.why.map(function(r){
+      return '<span class="mm-reason">&#10003; '+r+'</span>';
+    }).join('');
+
+    html+='<div class="mm-card">';
+    html+='<div class="mm-img"><img src="'+s.img+'" alt="'+s.title+'" loading="lazy" onerror="this.parentElement.style.display=\'none\'"></div>';
+    html+='<div class="mm-body">';
+    html+=rankHtml;
+    html+='<div class="mm-score-wrap"><div class="mm-bar-bg"><div class="mm-bar" style="width:'+s.pct+'%"></div></div><span class="mm-pct">'+s.pct+'% match</span></div>';
+    html+='<div class="mm-title">'+s.title+'</div>';
+    html+='<div class="mm-tags"><span class="mm-tag">'+s.cat+'</span><span class="mm-tag">'+s.seat+'"</span><span class="mm-tag">'+s.maker+'</span></div>';
+    html+='<div class="mm-price-row"><span class="mm-price">'+fmt(s.price)+'</span><a class="mm-link" href="/used-saddles/'+s.slug+'.html">View full listing &#8594;</a></div>';
+    if(s.why.length) html+='<div class="mm-reasons">'+whyHtml+'</div>';
+    html+='</div></div>';
+  });
+
+  html+='<div class="mm-cta">';
+  html+='<h3>Want David&#8217;s Opinion on Your Matches?</h3>';
+  html+='<p>Call or text David &#8212; tell him your top match and he&#8217;ll give you a straight read on tree width for your horse, condition details, and whether it&#8217;s the right call for your discipline.</p>';
+  html+='<div class="mm-cta-btns">';
+  html+='<a href="tel:4177931403" style="display:flex;align-items:center;gap:12px;background:var(--cognac);color:var(--white);padding:15px 28px;text-decoration:none;font-family:var(--font-label);font-size:13px;letter-spacing:.06em;justify-content:center;width:100%;max-width:300px;">&#128222; (417) 793-1403</a>';
+  html+='<a href="mailto:davidsolumsales@gmail.com?subject=Saddle Matchmaker Results" style="display:flex;align-items:center;gap:12px;border:2px solid var(--gold);color:var(--gold);padding:13px 28px;text-decoration:none;font-family:var(--font-label);font-size:11px;letter-spacing:.05em;justify-content:center;width:100%;max-width:300px;">&#9993;&#65039; Email David Your Results</a>';
+  html+='</div></div>';
+  html+='<div class="mm-btn-row" style="margin-top:24px;"><button class="mm-btn ghost" onclick="restart()">&#8592; Start over</button></div>';
+
+  return html;
+}
+
+function render() {
+  renderBar();
+  var app=document.getElementById('mmApp');
+  app.innerHTML = step===5 ? renderResults() : renderStep();
+}
+
+/* ── Boot ── */
+var h=document.getElementById('hamburger');
+var n=document.getElementById('navLinks');
+if(h) h.addEventListener('click',function(){n.classList.toggle('open');});
+render();
+</script>
+</body>
+</html>
