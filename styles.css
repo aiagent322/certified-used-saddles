@@ -186,3 +186,6 @@ a:hover { color: var(--gold); }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,.06); padding-top: 20px; display: flex; flex-direction: column; gap: 8px; font-size: .8rem; text-align: center; }
 @media (min-width: 640px) { .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; text-align: left; } }
 .footer-bottom p { color: rgba(138,121,104,.7); }
+
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media(min-width:640px){.related-grid{grid-template-columns:repeat(3,1fr);}}
