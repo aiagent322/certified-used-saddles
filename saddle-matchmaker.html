@@ -398,10 +398,12 @@ function render() {
 }
 
 /* ── Boot ── */
-var h=document.getElementById('hamburger');
-var n=document.getElementById('navLinks');
-if(h) h.addEventListener('click',function(){n.classList.toggle('open');});
-render();
+document.addEventListener('DOMContentLoaded', function() {
+  var h=document.getElementById('hamburger');
+  var n=document.getElementById('navLinks');
+  if(h) h.addEventListener('click',function(){n.classList.toggle('open');});
+  render();
+});
 </script>
 </body>
 </html>
