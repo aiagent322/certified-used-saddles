@@ -129,6 +129,17 @@ a:hover { color: var(--gold); }
 
 /* ── LISTING DETAIL PAGES ── */
 .listing-grid { display: grid; grid-template-columns: 1fr; gap: 28px; }
+/* ── 768px — tablets ── */
+@media (min-width: 768px) {
+  .container { padding: 0 28px; }
+  .section-title { font-size: 2.2rem; }
+  .section { padding: 28px 0; }
+  .card-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .disc-grid { grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .footer-grid { grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+  .page-hero { padding: 20px 28px 18px; }
+  .page-hero p { font-size: 1.1rem; }
+}
 @media (min-width: 900px) { .listing-grid { grid-template-columns: 3fr 2fr; gap: 40px; align-items: start; } }
 @media (min-width: 1100px) { .listing-grid { grid-template-columns: 3fr 2fr; gap: 52px; } }
 .main-img-wrap { background: var(--parchment); border: 1px solid rgba(93,58,26,.15); overflow: hidden; }
