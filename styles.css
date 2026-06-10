@@ -105,6 +105,12 @@ a:hover { color: var(--gold); }
 .disc-card { background: var(--white); border: 1px solid rgba(93,58,26,.15); border-top: 4px solid var(--cognac); padding: 24px 20px; transition: box-shadow .25s, transform .25s; text-decoration: none; display: block; }
 .disc-card:hover { box-shadow: 0 6px 28px rgba(58,31,8,.12); transform: translateY(-3px); color: inherit; }
 .disc-card-icon { font-size: 2rem; margin-bottom: 12px; }
+.disc-card-img { width: 100%; aspect-ratio: 4/3; overflow: hidden; margin-bottom: 16px; border-radius: 2px; }
+.disc-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
+.disc-card:hover .disc-card-img img { transform: scale(1.03); }
+.disc-card-img { width: 100%; aspect-ratio: 4/3; overflow: hidden; margin-bottom: 16px; border-radius: 2px; }
+.disc-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
+.disc-card:hover .disc-card-img img { transform: scale(1.03); }
 .disc-card h3 { font-family: var(--font-display); font-size: 1.2rem; color: var(--deep-tobacco); margin-bottom: 6px; }
 .disc-card .count { font-family: var(--font-label); font-size:12px; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
 .disc-card p { font-size: .9rem; color: var(--warm-gray); line-height: 1.65; }
