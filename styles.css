@@ -42,7 +42,7 @@ a:hover { color: var(--gold); }
 .section-title { font-family: var(--font-display); font-size: clamp(1.4rem, 4vw, 1.75rem); color: var(--deep-tobacco); line-height: 1.2; margin-bottom: 16px; }
 @media (min-width: 640px)  { .section-title { font-size: clamp(1.6rem, 4vw, 2.25rem); } }
 @media (min-width: 1024px) { .section-title { font-size: clamp(1.8rem, 3vw, 3rem); } }
-.section-intro { font-size: 1rem; color: var(--mid-brown); margin-bottom: 32px; line-height: 1.75; }
+.section-intro { font-size: 1.05rem; color: var(--mid-brown); margin-bottom: 32px; line-height: 1.75; }
 @media (min-width: 640px) { .section-intro { font-size: 1.1rem; } }
 
 .btn { display: inline-block; font-family: var(--font-label); font-size:12px; letter-spacing: .12em; text-transform: uppercase; padding: 13px 24px; border: 2px solid var(--cognac); color: var(--cognac); transition: all .25s; cursor: pointer; background: transparent; text-align: center; }
@@ -156,7 +156,7 @@ a:hover { color: var(--gold); }
 .listing-specs tr:last-child { border-bottom: none; }
 .listing-specs th { padding: 9px 10px 9px 0; font-family: var(--font-label); font-size:12px; letter-spacing: .1em; text-transform: uppercase; color: var(--warm-gray); width: 38%; text-align: left; font-weight: 400; }
 .listing-specs td { padding: 9px 0 9px 10px; color: var(--charcoal); font-weight: 600; font-size: .95rem; }
-.listing-description p { font-size: 1rem; line-height: 1.85; color: var(--charcoal); margin-bottom: 14px; }
+.listing-description p { font-size: 1.05rem; line-height: 1.85; color: var(--charcoal); margin-bottom: 14px; }
 .shipping-note { background: #e8f4fd; border-left: 4px solid #2196F3; padding: 13px 16px; font-size: .9rem; color: var(--charcoal); margin: 16px 0; line-height: 1.6; }
 .cert-badge { background: var(--parchment); border-left: 4px solid var(--gold); padding: 15px 16px; display: flex; gap: 12px; align-items: center; margin: 16px 0; }
 .cert-badge img { width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0; object-fit: contain; background: white; padding: 2px; }
