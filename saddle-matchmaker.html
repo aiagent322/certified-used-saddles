@@ -297,7 +297,7 @@ function renderStep() {
     html+='<p class="mm-sub">Select all that apply. Skip to see all disciplines.</p>';
     html+='<div class="mm-chips">';
     CATS.forEach(function(c){
-      html+=chip(c, state.disc.indexOf(c)>-1, 'toggleDisc("'+c+'")');
+      html+=chip(c, state.disc.indexOf(c)>-1, "toggleDisc('"+c+"')");
     });
     html+='</div>';
   }
@@ -337,7 +337,7 @@ function renderStep() {
     html+='<p class="mm-sub">Select any you\'d like to prioritize. Skip to see all makers equally.</p>';
     html+='<div class="mm-chips">';
     ALL_MAKERS.forEach(function(m){
-      html+=chip(m, state.makers.indexOf(m)>-1, 'toggleMaker("'+m.replace(/'/g,"\\'")+'")');
+      html+=chip(m, state.makers.indexOf(m)>-1, "toggleMaker('"+m.replace(/'/g,"\\'")+"')");
     });
     html+='</div>';
   }
