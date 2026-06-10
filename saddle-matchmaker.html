@@ -254,8 +254,8 @@ function compute() {
 /* ── Helpers ── */
 function fmt(n){ return n>0?'$'+n.toLocaleString():'Contact'; }
 
-function chip(label, active, onclick) {
-  return '<span class="mm-chip'+(active?' sel':'')+'" onclick="'+onclick+'">'+label+'</span>';
+function chip(label, active, action) {
+  return '<span class="mm-chip'+(active?' sel':'')+'" data-action="'+action+'">'+label+'</span>';
 }
 
 function toggleDisc(v) {
@@ -401,7 +401,19 @@ function render() {
 var h=document.getElementById('hamburger');
 var n=document.getElementById('navLinks');
 if(h) h.addEventListener('click',function(){n.classList.toggle('open');});
+
+document.getElementById('mmApp').addEventListener('click',function(e){
+  var t=e.target.closest('.mm-chip');
+  if(!t||!t.dataset.action) return;
+  var act=t.dataset.action;
+  if(act.indexOf('toggleDisc(')===0){toggleDisc(act.slice(11,-2));}
+  else if(act.indexOf('setSeat(')===0){var v=act.slice(8,-1);setSeat(v==='null'?null:+v);}
+  else if(act.indexOf('setSilver(')===0){setSilver(act.slice(11,-2));}
+  else if(act.indexOf('toggleMaker(')===0){toggleMaker(act.slice(13,-2));}
+});
+
 render();
 </script>
 </body>
 </html>
+
