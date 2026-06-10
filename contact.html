@@ -7,6 +7,7 @@
 <meta name="description" content="Contact David Solum for certified used western saddles — reining, cutting, cow horse, ranch. (417) 793-1403 or davidsolumsales@gmail.com. Want-list a">
 <link rel="canonical" href="https://www.certifiedusedsaddles.com/contact.html">
 <link rel="stylesheet" href="/styles.css">
+<script defer src="/contact-mailto.js"></script>
 <meta property="og:type" content="website">
 <meta property="og:title" content="Contact David Solum | CertifiedUsedSaddles.com">
 <meta property="og:description" content="Contact David Solum for certified used western saddles — reining, cutting, cow horse, ranch. (417) 793-1403 or davidsolumsales@gmail.com. Want-list a">
@@ -154,23 +155,23 @@
       <a href="tel:4177931403" style="font-family:var(--font-label,'Oswald',sans-serif);font-size:12px;letter-spacing:.1em;text-transform:uppercase;background:#8B4513;color:#fff;padding:12px 20px;text-decoration:none;display:inline-flex;align-items:center;gap:8px">&#128222; (417) 793-1403</a>
       <a href="mailto:davidsolumsales@gmail.com" style="font-family:var(--font-label,'Oswald',sans-serif);font-size:12px;letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.12);color:#fff;padding:12px 20px;text-decoration:none;display:inline-flex;align-items:center;gap:8px">&#9993; davidsolumsales@gmail.com</a>
     </div>
-    <form action="mailto:davidsolumsales@gmail.com" method="POST" enctype="text/plain">
+    <form id="davidSolumMailtoForm">
       <div class="cf-grid">
         <div class="cf-field">
           <label for="cf-name">Full Name *</label>
-          <input type="text" id="cf-name" name="Name" required placeholder="Your name">
+          <input type="text" id="name" name="Name" required placeholder="Your name">
         </div>
         <div class="cf-field">
           <label for="cf-email">Email Address *</label>
-          <input type="email" id="cf-email" name="Email" required placeholder="you@example.com">
+          <input type="email" id="email" name="Email" required placeholder="you@example.com">
         </div>
         <div class="cf-field">
           <label for="cf-phone">Phone / WhatsApp</label>
-          <input type="tel" id="cf-phone" name="Phone" placeholder="Your number">
+          <input type="tel" id="phone" name="Phone" placeholder="Your number">
         </div>
         <div class="cf-field">
           <label for="cf-interest">I Am Interested In</label>
-          <select id="cf-interest" name="Interest">
+          <select id="interest" name="Interest">
             <option value="">Select one</option>
             <option>Certified used western performance saddle</option>
             <option>New Superior Saddlery saddle</option>
@@ -181,7 +182,7 @@
         </div>
         <div class="cf-field">
           <label for="cf-seat">Seat Size (if known)</label>
-          <select id="cf-seat" name="Seat Size">
+          <select id="seatSize" name="Seat Size">
             <option value="">Not sure</option>
             <option>15"</option>
             <option>15.5"</option>
@@ -193,7 +194,7 @@
         </div>
         <div class="cf-field">
           <label for="cf-budget">Budget Range (USD)</label>
-          <select id="cf-budget" name="Budget">
+          <select id="budget" name="Budget">
             <option value="">Select range</option>
             <option>Under $1,500</option>
             <option>$1,500 &ndash; $3,000</option>
@@ -204,14 +205,15 @@
           </select>
         </div>
         <div class="cf-field cf-full">
-          <label for="cf-message">Message</label>
-          <textarea id="cf-message" name="Message" placeholder="Tell David about your horse, what you are looking for, your competition level, or any questions you have. The more detail, the better he can help."></textarea>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell David about your horse, what you are looking for, your competition level, or any questions you have. The more detail, the better he can help."></textarea>
         </div>
+        <div style="display:none"><input type="text" id="sourcePage" name="sourcePage" readonly></div>
       </div>
       <div class="cf-submit">
-        <button type="submit">Send Message to David &rarr;</button>
+        <button type="submit">Open Email to David &rarr;</button>
       </div>
-      <p class="cf-note">Submitting opens your email client with this message pre-addressed to David. You can review and send from there.</p>
+      <p class="cf-note">Your email app will open with this message pre-filled. Review and send from there.</p>
     </form>
   </div>
 </div>
