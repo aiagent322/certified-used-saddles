@@ -225,3 +225,4 @@ select:focus-visible, textarea:focus-visible {
   outline-offset: 3px;
   border-radius: 2px;
 }
+.header-bb { display:flex; align-items:center; margin-left:auto; flex-shrink:0; }
