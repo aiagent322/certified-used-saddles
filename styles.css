@@ -100,7 +100,7 @@ a:hover { color: var(--gold); }
 
 /* ── DISCIPLINE CATEGORY CARDS ── */
 .disc-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-@media (min-width: 640px) { .disc-grid { grid-template-columns: 1fr 1fr; gap: 20px; } }
+@media (min-width: 480px) { .disc-grid { grid-template-columns: repeat(4, 1fr); gap: 12px; } }
 @media (min-width: 1024px) { .disc-grid { grid-template-columns: repeat(4, 1fr); gap: 24px; } }
 .disc-card { background: var(--white); border: 1px solid rgba(93,58,26,.15); border-top: 4px solid var(--cognac); padding: 16px 14px; transition: box-shadow .25s, transform .25s; text-decoration: none; display: block; }
 .disc-card:hover { box-shadow: 0 6px 28px rgba(58,31,8,.12); transform: translateY(-3px); color: inherit; }
