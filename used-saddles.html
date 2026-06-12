@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>All Used Saddles | CertifiedUsedSaddles.com</title>
+<meta name="description" content="Complete inventory of certified used western performance saddles — reining, cutting, cow horse, and ranch. Personally inspected by David Solum. (417) 793-1403.">
+<link rel="canonical" href="https://www.certifiedusedsaddles.com/used-saddles.html">
+<link rel="stylesheet" href="/styles.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="All Used Saddles | CertifiedUsedSaddles.com">
+<meta property="og:description" content="Complete inventory of certified used western performance saddles personally inspected by David Solum.">
+<meta property="og:url" content="https://www.certifiedusedsaddles.com/used-saddles.html">
+<meta name="robots" content="index, follow">
+<style>
+.filter-bar{background:var(--white);border:1px solid rgba(93,58,26,.15);border-top:3px solid var(--cognac);padding:16px 20px;margin-bottom:24px}
+.filter-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
+.filter-row:last-child{margin-bottom:0}
+.filter-label{font-family:var(--font-label);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--warm-gray);width:70px;flex-shrink:0}
+.chip{font-family:var(--font-label);font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border:1px solid rgba(93,58,26,.25);color:var(--warm-gray);cursor:pointer;background:transparent;transition:all .18s;white-space:nowrap;min-height:36px}
+.chip:hover{border-color:var(--cognac);color:var(--cognac)}
+.chip.active{background:var(--cognac);color:var(--white);border-color:var(--cognac)}
+.filter-count{font-family:var(--font-label);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-left:auto;white-space:nowrap}
+.no-results{display:none;text-align:center;padding:48px 20px;font-family:var(--font-display);font-size:1.1rem;color:var(--warm-gray)}
+.no-results.show{display:block}
+</style>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-logo">Certified Used<span>Saddles</span>.com</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/reining-saddles.html">Reining</a></li>
+      <li><a href="/cutting-saddles.html">Cutting</a></li>
+      <li><a href="/cowhorse-saddles.html">Cow Horse</a></li>
+      <li><a href="/ranch-saddles.html">Ranch</a></li>
+      <li><a href="/saddle-matchmaker.html">Matchmaker</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="trust-bar">
+  <span class="trust-item">&#9989; Every Saddle Personally Inspected</span>
+  <span class="trust-sep">|</span>
+  <span class="trust-item">&#128222; (417) 793-1403</span>
+  <span class="trust-sep">|</span>
+  <span class="trust-item">40+ Years Experience</span>
+  <span class="trust-sep">|</span>
+  <span class="trust-item">Nationwide Shipping</span>
+</div>
+
+<section style="background:var(--deep-tobacco);background-image:radial-gradient(ellipse at 25% 50%,rgba(139,69,19,.4) 0%,transparent 60%);padding:20px 0 16px;border-bottom:3px solid var(--cognac);">
+  <div class="container">
+    <p style="font-family:var(--font-label);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,253,248,.45);margin-bottom:4px;">Complete Inventory</p>
+    <h1 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,3rem);font-weight:700;color:var(--parchment);line-height:1.1;margin-bottom:6px;">All Used Saddles</h1>
+    <p style="color:rgba(255,253,248,.9);font-size:1.1rem;font-weight:600;max-width:600px;line-height:1.4;">Every saddle personally inspected by David Solum &mdash; reining, cutting, cow horse, and ranch.</p>
+  </div>
+</section>
+
+<section class="section" id="inventory">
+  <div class="container">
+    <div class="filter-bar">
+      <div class="filter-row">
+        <span class="filter-label">Discipline</span>
+        <button class="chip active" data-filter="disc" data-val="any" onclick="setFilter(this,'disc')">Any</button>
+        <button class="chip" data-filter="disc" data-val="Reining" onclick="setFilter(this,'disc')">Reining</button>
+        <button class="chip" data-filter="disc" data-val="Cutting" onclick="setFilter(this,'disc')">Cutting</button>
+        <button class="chip" data-filter="disc" data-val="Cow Horse" onclick="setFilter(this,'disc')">Cow Horse</button>
+        <button class="chip" data-filter="disc" data-val="Ranch" onclick="setFilter(this,'disc')">Ranch</button>
+        <span class="filter-count" id="filterCount">40 saddles</span>
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">Price</span>
+        <button class="chip active" data-filter="price" data-min="0" data-max="999999" onclick="setFilter(this,'price')">Any</button>
+        <button class="chip" data-filter="price" data-min="0" data-max="1999" onclick="setFilter(this,'price')">Under $2k</button>
+        <button class="chip" data-filter="price" data-min="2000" data-max="3999" onclick="setFilter(this,'price')">$2k &ndash; $4k</button>
+        <button class="chip" data-filter="price" data-min="4000" data-max="5999" onclick="setFilter(this,'price')">$4k &ndash; $6k</button>
+        <button class="chip" data-filter="price" data-min="6000" data-max="999999" onclick="setFilter(this,'price')">$6k+</button>
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">Seat</span>
+        <button class="chip active" data-filter="seat" data-val="any" onclick="setFilter(this,'seat')">Any</button>
+        <button class="chip" data-filter="seat" data-val="15" onclick="setFilter(this,'seat')">15&quot;</button>
+        <button class="chip" data-filter="seat" data-val="15.5" onclick="setFilter(this,'seat')">15.5&quot;</button>
+        <button class="chip" data-filter="seat" data-val="16" onclick="setFilter(this,'seat')">16&quot;</button>
+        <button class="chip" data-filter="seat" data-val="16.5" onclick="setFilter(this,'seat')">16.5&quot;</button>
+        <button class="chip" data-filter="seat" data-val="17" onclick="setFilter(this,'seat')">17&quot;</button>
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">Maker</span>
+        <button class="chip active" data-filter="maker" data-val="any" onclick="setFilter(this,'maker')">Any</button>
+        <button class="chip" data-filter="maker" data-val="Superior" onclick="setFilter(this,'maker')">Superior Saddlery</button>
+        <button class="chip" data-filter="maker" data-val="Kyle Tack" onclick="setFilter(this,'maker')">Kyle Tack</button>
+        <button class="chip" data-filter="maker" data-val="Donn Leson" onclick="setFilter(this,'maker')">Donn Leson</button>
+        <button class="chip" data-filter="maker" data-val="Martin" onclick="setFilter(this,'maker')">Martin</button>
+        <button class="chip" data-filter="maker" data-val="Roohide" onclick="setFilter(this,'maker')">Roohide</button>
+        <button class="chip" data-filter="maker" data-val="Calvin Allen" onclick="setFilter(this,'maker')">Calvin Allen</button>
+        <button class="chip" data-filter="maker" data-val="Equine Oasis" onclick="setFilter(this,'maker')">Equine Oasis</button>
+        <button class="chip" data-filter="maker" data-val="Teddy Johnson" onclick="setFilter(this,'maker')">Teddy Johnson</button>
+        <button class="chip" data-filter="maker" data-val="SRS" onclick="setFilter(this,'maker')">SRS</button>
+        <button class="chip" data-filter="maker" data-val="Rios Bros." onclick="setFilter(this,'maker')">Rios Bros.</button>
+        <button class="chip" data-filter="maker" data-val="Bob's Custom" onclick="setFilter(this,'maker')">Bob's Custom</button>
+      </div>
+    </div>
+
+    <div class="inventory-grid" id="inventoryGrid">
+<div class="listing-card" data-disc="Reining" data-price="495" data-seat="15.5" data-maker="Rios Bros.">
+  <a href="/used-saddles/rios-bros-roper-15-5.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/rios-bros-roper-15-5-full-offside.jpg" alt="Rios Bros. Roper — 15½" Seat" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Rios Bros.</div>
+    <div class="listing-name">
+      <a href="/used-saddles/rios-bros-roper-15-5.html" style="color:inherit;">Rios Bros. Roper — 15½" Seat</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">15.5" seat</div>
+    <div class="listing-price">$495</div>
+    <a href="/used-saddles/rios-bros-roper-15-5.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="1795" data-seat="15" data-maker="Bob's Custom">
+  <a href="/used-saddles/bobs-custom-saddle-15-b14-867m.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/bobs-custom-15-b14-867m.jpg" alt="Bob's Custom Saddle — 15" Seat — Model B14-867M" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Bob's Custom</div>
+    <div class="listing-name">
+      <a href="/used-saddles/bobs-custom-saddle-15-b14-867m.html" style="color:inherit;">Bob's Custom Saddle — 15" Seat — Model B14-867M</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">15" seat</div>
+    <div class="listing-price">$1,795</div>
+    <a href="/used-saddles/bobs-custom-saddle-15-b14-867m.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="1995" data-seat="16" data-maker="Bob's Custom">
+  <a href="/used-saddles/bob-avila-bobs-custom-16-d.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/bob-avila-bobs-custom-16-d-full-offside.jpg" alt="Bob Avila by Bob's Custom — 16" B99-472, Full Silver Package" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Bob's Custom</div>
+    <div class="listing-name">
+      <a href="/used-saddles/bob-avila-bobs-custom-16-d.html" style="color:inherit;">Bob Avila by Bob's Custom — 16" B99-472, Full Silver P…</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">16" seat</div>
+    <div class="listing-price">$1,995</div>
+    <a href="/used-saddles/bob-avila-bobs-custom-16-d.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="2495" data-seat="15.5" data-maker="Superior">
+  <a href="/used-saddles/andrea-maschke-reiner-15-5.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/andrea-maschke-reiner-15.5.jpg" alt="Andreas Maschke Reiner — 15½" Seat — Original 2004 Build" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Superior Saddlery</div>
+    <div class="listing-name">
+      <a href="/used-saddles/andrea-maschke-reiner-15-5.html" style="color:inherit;">Andreas Maschke Reiner — 15½" Seat — Original 2004 Buil…</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">15.5" seat</div>
+    <div class="listing-price">$2,495</div>
+    <a href="/used-saddles/andrea-maschke-reiner-15-5.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="2495" data-seat="16" data-maker="Bob's Custom">
+  <a href="/used-saddles/bobs-custom-16-b16-1455m.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/bobs-custom-16-b16-1455m-full-offside.jpg" alt="Bob's Custom Saddle — 16" Model B16-1455M" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Bob's Custom</div>
+    <div class="listing-name">
+      <a href="/used-saddles/bobs-custom-16-b16-1455m.html" style="color:inherit;">Bob's Custom Saddle — 16" Model B16-1455M</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">16" seat</div>
+    <div class="listing-price">$2,495</div>
+    <a href="/used-saddles/bobs-custom-16-b16-1455m.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="2995" data-seat="17" data-maker="Bob's Custom">
+  <a href="/used-saddles/bob-avila-bobs-custom-17.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/bob-avila-bobs-custom-17-full-offside.jpg" alt="Bob Avila by Bob's Custom — 17" S-Scroll, Sterling Silver Conchos" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Bob's Custom</div>
+    <div class="listing-name">
+      <a href="/used-saddles/bob-avila-bobs-custom-17.html" style="color:inherit;">Bob Avila by Bob's Custom — 17" S-Scroll, Sterling Sil…</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">17" seat</div>
+    <div class="listing-price">$2,995</div>
+    <a href="/used-saddles/bob-avila-bobs-custom-17.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="2995" data-seat="17" data-maker="Equine Oasis">
+  <a href="/used-saddles/equine-oasis-tim-bauer-17.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/equine-oasis-tim-bauer-17-main.jpg" alt="Equine Oasis by Tim Bauer — 17" Seat" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Equine Oasis</div>
+    <div class="listing-name">
+      <a href="/used-saddles/equine-oasis-tim-bauer-17.html" style="color:inherit;">Equine Oasis by Tim Bauer — 17" Seat</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">17" seat</div>
+    <div class="listing-price">$2,995</div>
+    <a href="/used-saddles/equine-oasis-tim-bauer-17.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="2995" data-seat="16" data-maker="Superior">
+  <a href="/used-saddles/jason-vanlandingham-reiner-superior-16.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/jason-vanlandingham-reiner-superior-16-full-left.jpg" alt="Jason Vanlandingham Reiner by Superior Saddlery — 16" Bison Seat" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Superior Saddlery</div>
+    <div class="listing-name">
+      <a href="/used-saddles/jason-vanlandingham-reiner-superior-16.html" style="color:inherit;">Jason Vanlandingham Reiner by Superior Saddlery — 16" …</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">16" seat</div>
+    <div class="listing-price">$2,995</div>
+    <a href="/used-saddles/jason-vanlandingham-reiner-superior-16.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="2995" data-seat="16" data-maker="Superior">
+  <a href="/used-saddles/mandy-mccutcheon-reiner-superior-16.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/mandy-mccutcheon-superior-16-main.jpg" alt="Mandy McCutcheon Reiner — 16" Seat" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Superior Saddlery</div>
+    <div class="listing-name">
+      <a href="/used-saddles/mandy-mccutcheon-reiner-superior-16.html" style="color:inherit;">Mandy McCutcheon Reiner — 16" Seat</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">16" seat</div>
+    <div class="listing-price">$2,995</div>
+    <a href="/used-saddles/mandy-mccutcheon-reiner-superior-16.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="2995" data-seat="17" data-maker="Roohide">
+  <a href="/used-saddles/roohide-reiner-17.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/roohide-reiner-17-full-offside.jpg" alt="Roohide Reiner — 17" Seat" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Roohide</div>
+    <div class="listing-name">
+      <a href="/used-saddles/roohide-reiner-17.html" style="color:inherit;">Roohide Reiner — 17" Seat</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">17" seat</div>
+    <div class="listing-price">$2,995</div>
+    <a href="/used-saddles/roohide-reiner-17.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="3995" data-seat="15.5" data-maker="Kyle Tack">
+  <a href="/used-saddles/kyle-tack-reiner-15-5.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/kyle-tack-reiner-15.5.jpg" alt="Kyle Tack Reiner — 15½" Seat" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Kyle Tack</div>
+    <div class="listing-name">
+      <a href="/used-saddles/kyle-tack-reiner-15-5.html" style="color:inherit;">Kyle Tack Reiner — 15½" Seat</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">15.5" seat</div>
+    <div class="listing-price">$3,995</div>
+    <a href="/used-saddles/kyle-tack-reiner-15-5.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="3995" data-seat="16" data-maker="Kyle Tack">
+  <a href="/used-saddles/kyle-tack-reiner-16-like-new.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/kyle-tack-reiner-16-like-new.jpg" alt="Kyle Tack Reiner — 16" Seat — Like New" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Kyle Tack</div>
+    <div class="listing-name">
+      <a href="/used-saddles/kyle-tack-reiner-16-like-new.html" style="color:inherit;">Kyle Tack Reiner — 16" Seat — Like New</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">16" seat</div>
+    <div class="listing-price">$3,995</div>
+    <a href="/used-saddles/kyle-tack-reiner-16-like-new.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="3995" data-seat="16" data-maker="Kyle Tack">
+  <a href="/used-saddles/kyle-tack-reiner-16-mint.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/kyle-tack-reiner-16-mint-main.jpg" alt="Kyle Tack Reiner — 16" Seat" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Kyle Tack</div>
+    <div class="listing-name">
+      <a href="/used-saddles/kyle-tack-reiner-16-mint.html" style="color:inherit;">Kyle Tack Reiner — 16" Seat</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">16" seat</div>
+    <div class="listing-price">$3,995</div>
+    <a href="/used-saddles/kyle-tack-reiner-16-mint.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="3995" data-seat="16" data-maker="Kyle Tack">
+  <a href="/used-saddles/kyle-tack-reiner-16-silver-conchos.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/kyle-tack-reiner-16-silver-conchos-main.jpg" alt="Kyle Tack Reiner — 16" Seat" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Kyle Tack</div>
+    <div class="listing-name">
+      <a href="/used-saddles/kyle-tack-reiner-16-silver-conchos.html" style="color:inherit;">Kyle Tack Reiner — 16" Seat</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">16" seat</div>
+    <div class="listing-price">$3,995</div>
+    <a href="/used-saddles/kyle-tack-reiner-16-silver-conchos.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="3995" data-seat="16" data-maker="Kyle Tack">
+  <a href="/used-saddles/kyle-tack-reiner-16.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/kyle-tack-reiner-16.jpg" alt="Kyle Tack Reiner — 16" Seat" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Kyle Tack</div>
+    <div class="listing-name">
+      <a href="/used-saddles/kyle-tack-reiner-16.html" style="color:inherit;">Kyle Tack Reiner — 16" Seat</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">16" seat</div>
+    <div class="listing-price">$3,995</div>
+    <a href="/used-saddles/kyle-tack-reiner-16.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="4995" data-seat="15.5" data-maker="Bob's Custom">
+  <a href="/used-saddles/bobs-custom-kr-lady-reiner-15-5.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/bobs-custom-kr-lady-reiner-15-5-full-left.jpg" alt="Bob's Custom KR Lady Reiner — 15½" Bison Seat" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Bob's Custom</div>
+    <div class="listing-name">
+      <a href="/used-saddles/bobs-custom-kr-lady-reiner-15-5.html" style="color:inherit;">Bob's Custom KR Lady Reiner — 15½" Bison Seat</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">15.5" seat</div>
+    <div class="listing-price">$4,995</div>
+    <a href="/used-saddles/bobs-custom-kr-lady-reiner-15-5.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="4995" data-seat="16" data-maker="Superior">
+  <a href="/used-saddles/craig-schmersal-reiner-superior-16.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/craig-schmersal-reiner-superior-16.jpg" alt="Craig Schmersal Reiner by Superior Saddlery — 16" Seat" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Superior Saddlery</div>
+    <div class="listing-name">
+      <a href="/used-saddles/craig-schmersal-reiner-superior-16.html" style="color:inherit;">Craig Schmersal Reiner by Superior Saddlery — 16" Seat</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">16" seat</div>
+    <div class="listing-price">$4,995</div>
+    <a href="/used-saddles/craig-schmersal-reiner-superior-16.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="4995" data-seat="16" data-maker="Superior">
+  <a href="/used-saddles/superior-reiner-floral-4995.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/superior-reiner-4995-tag.jpg" alt="Superior Saddlery Reiner — Full Floral Tooling" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Superior Saddlery</div>
+    <div class="listing-name">
+      <a href="/used-saddles/superior-reiner-floral-4995.html" style="color:inherit;">Superior Saddlery Reiner — Full Floral Tooling</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">16" seat</div>
+    <div class="listing-price">$4,995</div>
+    <a href="/used-saddles/superior-reiner-floral-4995.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="4995" data-seat="15.5" data-maker="Martin">
+  <a href="/used-saddles/trevor-dare-martin-saddlery-15-5.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/trevor-dare-martin-saddlery-15-5-full-offside.jpg" alt="Trevor Dare Reiner by Martin Saddlery — 15½" Full Silver" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Martin</div>
+    <div class="listing-name">
+      <a href="/used-saddles/trevor-dare-martin-saddlery-15-5.html" style="color:inherit;">Trevor Dare Reiner by Martin Saddlery — 15½" Full Silv…</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">15.5" seat</div>
+    <div class="listing-price">$4,995</div>
+    <a href="/used-saddles/trevor-dare-martin-saddlery-15-5.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="5995" data-seat="16" data-maker="Superior">
+  <a href="/used-saddles/af-reiner-pinnacle-saddlery-16.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/af-reiner-pinnacle-saddlery-16-full-offside.jpg" alt="AF Reiner by Pinnacle Saddlery — 16" Elephant Seat, Full Silver" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Superior Saddlery</div>
+    <div class="listing-name">
+      <a href="/used-saddles/af-reiner-pinnacle-saddlery-16.html" style="color:inherit;">AF Reiner by Pinnacle Saddlery — 16" Elephant Seat, Fu…</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">16" seat</div>
+    <div class="listing-price">$5,995</div>
+    <a href="/used-saddles/af-reiner-pinnacle-saddlery-16.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="5995" data-seat="16" data-maker="Bob's Custom">
+  <a href="/used-saddles/bob-avila-bobs-custom-16-b.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/bob-avila-bobs-custom-16-b-full-left.jpg" alt="Bob Avila by Bob's Custom Saddle — 16" B17-120M" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Bob's Custom</div>
+    <div class="listing-name">
+      <a href="/used-saddles/bob-avila-bobs-custom-16-b.html" style="color:inherit;">Bob Avila by Bob's Custom Saddle — 16" B17-120M</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">16" seat</div>
+    <div class="listing-price">$5,995</div>
+    <a href="/used-saddles/bob-avila-bobs-custom-16-b.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="5995" data-seat="16" data-maker="Bob's Custom">
+  <a href="/used-saddles/bob-avila-bobs-custom-16-c.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/bob-avila-bobs-custom-16-c-full-left.jpg" alt="Bob Avila by Bob's Custom Saddle — 16" Silver Swell Cap & Full Silver Package" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Bob's Custom</div>
+    <div class="listing-name">
+      <a href="/used-saddles/bob-avila-bobs-custom-16-c.html" style="color:inherit;">Bob Avila by Bob's Custom Saddle — 16" Silver Swell Ca…</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">16" seat</div>
+    <div class="listing-price">$5,995</div>
+    <a href="/used-saddles/bob-avila-bobs-custom-16-c.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="5995" data-seat="16" data-maker="Bob's Custom">
+  <a href="/used-saddles/bob-avila-bobs-custom-16.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/bob-avila-bobs-custom-16-full-right.jpg" alt="Bob Avila by Bob's Custom Saddle — 16" Seat" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Bob's Custom</div>
+    <div class="listing-name">
+      <a href="/used-saddles/bob-avila-bobs-custom-16.html" style="color:inherit;">Bob Avila by Bob's Custom Saddle — 16" Seat</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">16" seat</div>
+    <div class="listing-price">$5,995</div>
+    <a href="/used-saddles/bob-avila-bobs-custom-16.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="5995" data-seat="16" data-maker="Bob's Custom">
+  <a href="/used-saddles/bobs-custom-16-basketweave-silver.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/bobs-custom-16-basketweave-silver-full-left.jpg" alt="Bob's Custom Saddle — 16" Seat — Basketweave & Floral" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Bob's Custom</div>
+    <div class="listing-name">
+      <a href="/used-saddles/bobs-custom-16-basketweave-silver.html" style="color:inherit;">Bob's Custom Saddle — 16" Seat — Basketweave & Floral</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">16" seat</div>
+    <div class="listing-price">$5,995</div>
+    <a href="/used-saddles/bobs-custom-16-basketweave-silver.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="5995" data-seat="16" data-maker="Bob's Custom">
+  <a href="/used-saddles/bobs-custom-16-tan-sterling-silver.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/bobs-custom-16-tan-sterling-full-left.jpg" alt="Bob's Custom Saddle — 16" Seat — Tan Leather, Sterling Silver" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Bob's Custom</div>
+    <div class="listing-name">
+      <a href="/used-saddles/bobs-custom-16-tan-sterling-silver.html" style="color:inherit;">Bob's Custom Saddle — 16" Seat — Tan Leather, Sterling…</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">16" seat</div>
+    <div class="listing-price">$5,995</div>
+    <a href="/used-saddles/bobs-custom-16-tan-sterling-silver.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="5995" data-seat="16" data-maker="Superior">
+  <a href="/used-saddles/casey-deary-reiner-superior-16.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/casey-deary-superior-16-main.jpg" alt="Casey Deary Reiner — 16" Seat" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Superior Saddlery</div>
+    <div class="listing-name">
+      <a href="/used-saddles/casey-deary-reiner-superior-16.html" style="color:inherit;">Casey Deary Reiner — 16" Seat</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">16" seat</div>
+    <div class="listing-price">$5,995</div>
+    <a href="/used-saddles/casey-deary-reiner-superior-16.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="6495" data-seat="16" data-maker="Donn Leson">
+  <a href="/used-saddles/donn-leson-tvb-386-16.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/donn-leson-tvb-386-16-full-left.jpg" alt="Donn Leson TVB #386 — 16" Seat" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Donn Leson</div>
+    <div class="listing-name">
+      <a href="/used-saddles/donn-leson-tvb-386-16.html" style="color:inherit;">Donn Leson TVB #386 — 16" Seat</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">16" seat</div>
+    <div class="listing-price">$6,495</div>
+    <a href="/used-saddles/donn-leson-tvb-386-16.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="6495" data-seat="15.5" data-maker="Superior">
+  <a href="/used-saddles/mr-reiner-superior-15-5.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/mr-reiner-superior-15-5-full-left.jpg" alt="MR Reiner by Superior Saddlery — 15½" Seat" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Superior Saddlery</div>
+    <div class="listing-name">
+      <a href="/used-saddles/mr-reiner-superior-15-5.html" style="color:inherit;">MR Reiner by Superior Saddlery — 15½" Seat</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">15.5" seat</div>
+    <div class="listing-price">$6,495</div>
+    <a href="/used-saddles/mr-reiner-superior-15-5.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="7995" data-seat="16" data-maker="Donn Leson">
+  <a href="/used-saddles/donn-leson-reinmaker-16.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/donn-leson-reinmaker-16-full-offside.jpg" alt="Donn Leson Reinmaker — 16" Seat" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Donn Leson</div>
+    <div class="listing-name">
+      <a href="/used-saddles/donn-leson-reinmaker-16.html" style="color:inherit;">Donn Leson Reinmaker — 16" Seat</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">16" seat</div>
+    <div class="listing-price">$7,995</div>
+    <a href="/used-saddles/donn-leson-reinmaker-16.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="0" data-seat="16" data-maker="Other">
+  <a href="/used-saddles/reiner-basket-floral-silver-conchos.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/brown-reiner-silver-conchos-dees.jpg" alt="Reiner — Basket & Floral Tooling, Silver Conchos" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Other</div>
+    <div class="listing-name">
+      <a href="/used-saddles/reiner-basket-floral-silver-conchos.html" style="color:inherit;">Reiner — Basket & Floral Tooling, Silver Conchos</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">16" seat</div>
+    <div class="listing-price">Contact</div>
+    <a href="/used-saddles/reiner-basket-floral-silver-conchos.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="0" data-seat="16" data-maker="Other">
+  <a href="/used-saddles/roughout-reiner-two-tone-black.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/roughout-reiner-two-tone-black.jpg" alt="Roughout Reiner — Two-Tone Black & Tan Tooling" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Other</div>
+    <div class="listing-name">
+      <a href="/used-saddles/roughout-reiner-two-tone-black.html" style="color:inherit;">Roughout Reiner — Two-Tone Black & Tan Tooling</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">16" seat</div>
+    <div class="listing-price">Contact</div>
+    <a href="/used-saddles/roughout-reiner-two-tone-black.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Reining" data-price="0" data-seat="16" data-maker="Superior">
+  <a href="/used-saddles/superior-reiner-black-seat-silver-corners.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/superior-schmersal-black-seat-silver.jpg" alt="Superior Saddlery Reiner — Black Seat, Silver Corner Plates" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Reining</div>
+    <div class="listing-maker">Superior Saddlery</div>
+    <div class="listing-name">
+      <a href="/used-saddles/superior-reiner-black-seat-silver-corners.html" style="color:inherit;">Superior Saddlery Reiner — Black Seat, Silver Corner P…</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">16" seat</div>
+    <div class="listing-price">Contact</div>
+    <a href="/used-saddles/superior-reiner-black-seat-silver-corners.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Cutting" data-price="1195" data-seat="16" data-maker="Teddy Johnson">
+  <a href="/used-saddles/teddy-johnson-cutter-16-full.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/teddy-johnson-cutter-16-seat-top.jpg" alt="Teddy Johnson Cutter — 16" Seat" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Cutting</div>
+    <div class="listing-maker">Teddy Johnson</div>
+    <div class="listing-name">
+      <a href="/used-saddles/teddy-johnson-cutter-16-full.html" style="color:inherit;">Teddy Johnson Cutter — 16" Seat</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">16" seat</div>
+    <div class="listing-price">$1,195</div>
+    <a href="/used-saddles/teddy-johnson-cutter-16-full.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Cutting" data-price="1195" data-seat="16" data-maker="Teddy Johnson">
+  <a href="/used-saddles/teddy-johnson-cutter-16.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/teddy-johnson-cutter-16.jpg" alt="Teddy Johnson Cutter — 16" Seat" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Cutting</div>
+    <div class="listing-maker">Teddy Johnson</div>
+    <div class="listing-name">
+      <a href="/used-saddles/teddy-johnson-cutter-16.html" style="color:inherit;">Teddy Johnson Cutter — 16" Seat</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">16" seat</div>
+    <div class="listing-price">$1,195</div>
+    <a href="/used-saddles/teddy-johnson-cutter-16.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Cutting" data-price="1995" data-seat="15.5" data-maker="Calvin Allen">
+  <a href="/used-saddles/calvin-allen-ranch-cutter-15-5.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/calvin-allen-ranch-cutter-15-5-full-offside.jpg" alt="Ranch Cutter by Calvin Allen Saddlery — 15½" Seat" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Cutting</div>
+    <div class="listing-maker">Calvin Allen</div>
+    <div class="listing-name">
+      <a href="/used-saddles/calvin-allen-ranch-cutter-15-5.html" style="color:inherit;">Ranch Cutter by Calvin Allen Saddlery — 15½" Seat</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">15.5" seat</div>
+    <div class="listing-price">$1,995</div>
+    <a href="/used-saddles/calvin-allen-ranch-cutter-15-5.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Cow Horse" data-price="4995" data-seat="15.5" data-maker="Bob's Custom">
+  <a href="/used-saddles/lady-cowhorse-bobs-custom-15-5-b.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/lady-cowhorse-bobs-custom-15-5-b-full-offside.jpg" alt="Lady Cowhorse by Bob's Custom — 15½" Star Tooling, Brand New" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Cow Horse</div>
+    <div class="listing-maker">Bob's Custom</div>
+    <div class="listing-name">
+      <a href="/used-saddles/lady-cowhorse-bobs-custom-15-5-b.html" style="color:inherit;">Lady Cowhorse by Bob's Custom — 15½" Star Tooling, Bra…</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">15.5" seat</div>
+    <div class="listing-price">$4,995</div>
+    <a href="/used-saddles/lady-cowhorse-bobs-custom-15-5-b.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Cow Horse" data-price="4995" data-seat="15.5" data-maker="Bob's Custom">
+  <a href="/used-saddles/lady-cowhorse-bobs-custom-15-5.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/lady-cowhorse-bobs-custom-15-5-full-left.jpg" alt="Lady Cowhorse by Bob's Custom Saddle — 15½" Seat — Brand New" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Cow Horse</div>
+    <div class="listing-maker">Bob's Custom</div>
+    <div class="listing-name">
+      <a href="/used-saddles/lady-cowhorse-bobs-custom-15-5.html" style="color:inherit;">Lady Cowhorse by Bob's Custom Saddle — 15½" Seat — Bra…</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">15.5" seat</div>
+    <div class="listing-price">$4,995</div>
+    <a href="/used-saddles/lady-cowhorse-bobs-custom-15-5.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Ranch" data-price="1495" data-seat="16" data-maker="SRS">
+  <a href="/used-saddles/srs-ranch-saddle-16.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/srs-ranch-saddle-16-main.jpg" alt="SRS Ranch Saddle — 16" Seat" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Ranch</div>
+    <div class="listing-maker">SRS</div>
+    <div class="listing-name">
+      <a href="/used-saddles/srs-ranch-saddle-16.html" style="color:inherit;">SRS Ranch Saddle — 16" Seat</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">16" seat</div>
+    <div class="listing-price">$1,495</div>
+    <a href="/used-saddles/srs-ranch-saddle-16.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Ranch" data-price="5495" data-seat="16.5" data-maker="Superior">
+  <a href="/used-saddles/superior-ranch-rider-16-5-nevada.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/superior-ranch-rider-16-5-nevada-full-offside.jpg" alt="Superior Saddlery — 16½" Elephant Seat, #1 Flower & Nevada Border" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Ranch</div>
+    <div class="listing-maker">Superior Saddlery</div>
+    <div class="listing-name">
+      <a href="/used-saddles/superior-ranch-rider-16-5-nevada.html" style="color:inherit;">Superior Saddlery — 16½" Elephant Seat, #1 Flower & Ne…</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">16.5" seat</div>
+    <div class="listing-price">$5,495</div>
+    <a href="/used-saddles/superior-ranch-rider-16-5-nevada.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+<div class="listing-card" data-disc="Ranch" data-price="5495" data-seat="16.5" data-maker="Superior">
+  <a href="/used-saddles/superior-ranch-rider-deluxe-16-5.html">
+    <div class="listing-img-wrap">
+      <img src="/images/used-saddles/superior-ranch-rider-deluxe-16-5-full-offside.jpg" alt="Ranch Rider Deluxe by Superior Saddlery — 16½" Elephant Seat" loading="lazy">
+    </div>
+  </a>
+  <div class="listing-body"><div class="listing-disc">Ranch</div>
+    <div class="listing-maker">Superior Saddlery</div>
+    <div class="listing-name">
+      <a href="/used-saddles/superior-ranch-rider-deluxe-16-5.html" style="color:inherit;">Ranch Rider Deluxe by Superior Saddlery — 16½" Elephan…</a>
+    </div>
+    <div style="font-family:var(--font-label);font-size:12px;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;">16.5" seat</div>
+    <div class="listing-price">$5,495</div>
+    <a href="/used-saddles/superior-ranch-rider-deluxe-16-5.html" class="inquire-btn">View &amp; Inquire</a>
+  </div>
+</div>
+    </div>
+    <div class="no-results" id="noResults">No saddles match your filters. <a href="/contact.html" style="color:var(--cognac);">Tell David what you need &rarr;</a></div>
+
+    <div style="margin-top:32px;background:var(--parchment);border-left:4px solid var(--cognac);padding:18px 20px;">
+      <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--deep-tobacco);margin-bottom:6px;">&#127919; Don&#8217;t See What You Need?</h3>
+      <p style="font-size:1rem;color:var(--warm-gray);line-height:1.75;margin-bottom:12px;">David maintains an active want-list across all four disciplines. Tell him your maker, seat size, tree width, and price range &mdash; he&#8217;ll reach out when a match comes through.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="tel:4177931403" class="btn btn-solid">&#128222; (417) 793-1403</a>
+        <a href="/contact.html" class="btn btn-gold">Contact David</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="padding:24px 0;text-align:center;">
+      <p>&copy; 2025 CertifiedUsedSaddles.com &mdash; David Solum</p>
+      <p style="margin-top:6px;">
+        <a href="tel:4177931403" style="color:var(--warm-gray);">&#128222; (417) 793-1403</a>
+        &nbsp;|&nbsp;
+        <a href="mailto:davidsolumsales@gmail.com" style="color:var(--warm-gray);">davidsolumsales@gmail.com</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+var filters = {disc:'any', price:{min:0,max:999999}, seat:'any', maker:'any'};
+
+function setFilter(btn, type) {
+  document.querySelectorAll('[data-filter="'+type+'"]').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  if(type==='price'){
+    filters.price = {min:parseInt(btn.dataset.min), max:parseInt(btn.dataset.max)};
+  } else {
+    filters[type] = btn.dataset.val;
+  }
+  applyFilters();
+}
+
+function applyFilters() {
+  var cards = document.querySelectorAll('.listing-card');
+  var count = 0;
+  cards.forEach(function(card) {
+    var price = parseInt(card.dataset.price)||0;
+    var seat = card.dataset.seat||'';
+    var maker = card.dataset.maker||'';
+    var disc = card.dataset.disc||'';
+    var show = true;
+    if(filters.disc !== 'any' && disc !== filters.disc) show = false;
+    if(price < filters.price.min || price > filters.price.max) show = false;
+    if(filters.seat !== 'any' && parseFloat(seat) !== parseFloat(filters.seat)) show = false;
+    if(filters.maker !== 'any' && maker !== filters.maker) show = false;
+    card.style.display = show ? '' : 'none';
+    if(show) count++;
+  });
+  document.getElementById('filterCount').textContent = count + ' saddle' + (count===1?'':'s');
+  document.getElementById('noResults').classList.toggle('show', count===0);
+}
+
+var h=document.getElementById('hamburger'),n=document.getElementById('navLinks');
+if(h)h.addEventListener('click',function(){n.classList.toggle('open');});
+</script>
+</body>
+</html>
