@@ -200,8 +200,7 @@ a:hover { color: var(--gold); }
 .footer-col li { margin-bottom: 7px; }
 .footer-col a { color: #fff; font-weight: 700; font-size: 1rem; transition: color .2s; }
 .footer-col a:hover { color: var(--gold-light); }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,.06); padding-top: 20px; display: flex; flex-direction: column; gap: 8px; font-size:1rem; text-align: center; }
-@media (min-width: 640px) { .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; text-align: left; } }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,.06); padding-top: 20px; display: flex; flex-direction: column; gap: 8px; font-size:1rem; text-align: center; align-items: center; }
 .footer-bottom p { color: #fff; font-weight: 700; }
 
 .related-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
