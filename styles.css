@@ -102,15 +102,15 @@ a:hover { color: var(--gold); }
 .disc-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
 @media (min-width: 640px) { .disc-grid { grid-template-columns: 1fr 1fr; gap: 20px; } }
 @media (min-width: 1024px) { .disc-grid { grid-template-columns: repeat(4, 1fr); gap: 24px; } }
-.disc-card { background: var(--white); border: 1px solid rgba(93,58,26,.15); border-top: 4px solid var(--cognac); padding: 24px 20px; transition: box-shadow .25s, transform .25s; text-decoration: none; display: block; }
+.disc-card { background: var(--white); border: 1px solid rgba(93,58,26,.15); border-top: 4px solid var(--cognac); padding: 16px 14px; transition: box-shadow .25s, transform .25s; text-decoration: none; display: block; }
 .disc-card:hover { box-shadow: 0 6px 28px rgba(58,31,8,.12); transform: translateY(-3px); color: inherit; }
 .disc-card-icon { font-size: 2rem; margin-bottom: 12px; }
-.disc-card-img { width: 100%; aspect-ratio: 3/4; overflow: hidden; margin-bottom: 16px; border-radius: 2px; background: var(--parchment); }
-.disc-card-img img { width: 100%; height: 100%; object-fit: contain; transition: transform .3s; }
+.disc-card-img { width: 100%; aspect-ratio: 4/3; overflow: hidden; margin-bottom: 12px; border-radius: 2px; background: var(--parchment); }
+.disc-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
 .disc-card:hover .disc-card-img img { transform: scale(1.03); }
-.disc-card h3 { font-family: var(--font-display); font-size: 1.5rem; color: var(--deep-tobacco); margin-bottom: 6px; }
-.disc-card .count { font-family: var(--font-label); font-size:13px; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
-.disc-card p { font-size: 1rem; color: var(--warm-gray); line-height: 1.65; }
+.disc-card h3 { font-family: var(--font-display); font-size: 1.1rem; color: var(--deep-tobacco); margin-bottom: 4px; }
+.disc-card .count { font-family: var(--font-label); font-size:11px; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.disc-card p { font-size: .9rem; color: var(--warm-gray); line-height: 1.55; }
 
 /* ── INVENTORY GRID ── */
 .inventory-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
@@ -138,7 +138,7 @@ a:hover { color: var(--gold); }
   .section-title { font-size: 2.2rem; }
   .section { padding: 28px 0; }
   .card-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; }
-  .disc-grid { grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .disc-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
   .footer-grid { grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
   .page-hero { padding: 20px 28px 18px; }
   .page-hero p { font-size: 1.1rem; }
