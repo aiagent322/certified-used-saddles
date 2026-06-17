@@ -426,10 +426,13 @@ document.getElementById('mmApp').addEventListener('click',function(e){
   var t=e.target.closest('.mm-chip');
   if(!t||!t.dataset.action) return;
   var act=t.dataset.action;
-  if(act.indexOf('toggleDisc(')===0){toggleDisc(act.slice(11,-2));}
-  else if(act.indexOf('setSeat(')===0){var v=act.slice(8,-1);setSeat(v==='null'?null:+v);}
-  else if(act.indexOf('setSilver(')===0){setSilver(act.slice(11,-2));}
-  else if(act.indexOf('toggleMaker(')===0){toggleMaker(act.slice(13,-2));}
+  /* Extract argument: content between first ( and last ), strip surrounding quotes */
+  var raw=act.slice(act.indexOf('(')+1,act.lastIndexOf(')'));
+  var arg=raw.replace(/^['"]/,'').replace(/['"]$/,'');
+  if(act.indexOf('toggleDisc(')===0){toggleDisc(arg);}
+  else if(act.indexOf('setSeat(')===0){setSeat(arg==='null'?null:+arg);}
+  else if(act.indexOf('setSilver(')===0){setSilver(arg);}
+  else if(act.indexOf('toggleMaker(')===0){toggleMaker(arg);}
 });
 
 render();
