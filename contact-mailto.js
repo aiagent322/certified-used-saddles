@@ -11,7 +11,7 @@
       var body=[
         'Name: '+val('name'),
         'Email: '+val('email'),
-        'Phone / WhatsApp: '+val('phone'),
+        'Phone: '+val('phone'),
         'Country or State: '+val('location'),
         'Interest: '+val('interest'),
         'Seat Size: '+val('seatSize'),
