@@ -901,6 +901,19 @@ function setFilter(btn, type) {
   applyFilters();
 }
 
+// Maker filter tolerance: cards auto-added from the dashboard carry the full
+// maker name (e.g. "Rios Bros Custom Saddles of Phoenix") while filter chips
+// use a short canonical form (e.g. "Rios Bros."). Normalize (lowercase, drop
+// periods, collapse spaces) and match if the card maker equals or begins with
+// the chip value on a word boundary. Verified against all live cards: only
+// the intended Rios cards are affected; every other chip is unchanged.
+function makerMatch(cardMaker, chipVal) {
+  var norm = function(s){ return (s||'').toLowerCase().replace(/\./g,'').replace(/\s+/g,' ').trim(); };
+  var c = norm(cardMaker), f = norm(chipVal);
+  if (c === f) return true;
+  return c.indexOf(f) === 0 && (c.length === f.length || c.charAt(f.length) === ' ');
+}
+
 function applyFilters() {
   var cards = document.querySelectorAll('.listing-card');
   var count = 0;
@@ -913,7 +926,7 @@ function applyFilters() {
     if(filters.disc !== 'any' && disc !== filters.disc) show = false;
     if(price < filters.price.min || price > filters.price.max) show = false;
     if(filters.seat !== 'any' && parseFloat(seat) !== parseFloat(filters.seat)) show = false;
-    if(filters.maker !== 'any' && maker !== filters.maker) show = false;
+    if(filters.maker !== 'any' && !makerMatch(maker, filters.maker)) show = false;
     card.style.display = show ? '' : 'none';
     if(show) count++;
   });
